@@ -1,10 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { getTableData } from "./api/api";
+import { useQuery } from "@tanstack/react-query";
+import Example from "./components/example";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["tableData"],
+    queryFn: () => getTableData(),
+  });
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
+
+  // useEffect(() => {
+  //   console.log(tableData);
+  // }, [tableData]);
 
   return (
     <>
@@ -28,8 +47,15 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Example />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+// folder structure:
+// src
+//   - assets
+//   - components
+//   - pages
