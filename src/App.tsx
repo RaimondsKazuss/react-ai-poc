@@ -17,10 +17,10 @@ function App() {
             <Link to="/table" className="link">
               Data table
             </Link>
+            <Link to="/settings" className="link">
+              Settings
+            </Link>
           </div>
-          <Link to="/settings" className="link">
-            Settings
-          </Link>
           <Link to="/authorization" className="link">
             Login
           </Link>
