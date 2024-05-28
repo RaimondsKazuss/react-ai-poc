@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { AgGridReact } from "ag-grid-react";
-import { ColDef } from "ag-grid-community"; // Importing column definition types from ag-Grid
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-alpine.css";
-import data from "../data.json";
+import { ColDef } from "ag-grid-community";
 
-interface DataRow {
-  id: number;
-  SSN: string;
-  employee: string;
-  itemNumber: string; // Using quotes because of the space in the property name
-  reason: string;
-  from: string;
-  to: string;
-  FV: string;
-  text: string;
-}
+import data from "../data.json";
+import DataTable, { DataRow } from "../components/DataTable";
 
 const TablePage: React.FC = () => {
   const [rowData, setRowData] = useState<DataRow[]>([]);
@@ -50,14 +37,15 @@ const TablePage: React.FC = () => {
         Table Page
       </h2>
       <div className="ag-theme-alpine" style={{ height: 600, width: "100%" }}>
-        <AgGridReact
+        {/* <AgGridReact
           columnDefs={columnDefs}
           rowData={rowData}
           domLayout="autoHeight" // Adjust grid size dynamically
           animateRows
           pagination
           paginationPageSize={15}
-        />
+        /> */}
+        <DataTable columnDefs={columnDefs} rowData={rowData} />
       </div>
     </div>
   );
