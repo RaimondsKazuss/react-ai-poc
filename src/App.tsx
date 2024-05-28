@@ -1,54 +1,38 @@
-import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { getTableData } from "./api/api";
-import { useQuery } from "@tanstack/react-query";
+// File: App.tsx
+
+import React from 'react';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
+} from 'react-router-dom';
+import TablePage from './pages/TablePage'; // Adjust the import path as necessary
 
 function App() {
-  const [count, setCount] = useState(0);
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["tableData"],
-    queryFn: () => getTableData(),
-  });
-
-  useEffect(() => {}, [data]);
-
-  if (isLoading) return "Loading...";
-
-  if (error) return "An error has occurred: " + error.message;
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      {/* <Example /> */}
-    </>
-  );
+    return (
+        <Router>
+            <div>
+                <nav>
+                    {/* Link to the TablePage */}
+                    <Link to="/table">Go to Table Page</Link>
+                </nav>
+                {/* Define Routes */}
+                <Routes>
+                    <Route path="/" element={<Home />} /> {/* Define a Home component or use an existing component */}
+                    <Route path="/table" element={<TablePage />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
-export default App;
+// Example Home component
+const Home = () => (
+    <div>
+        <h2>Home Page</h2>
+        <p>Welcome! Click on the link above to view the table.</p>
+    </div>
+);
 
-// folder structure:
-// src
-//   - assets
-//   - components
-//   - pages
+export default App;
