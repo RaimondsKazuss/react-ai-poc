@@ -1,30 +1,23 @@
 import React from "react";
+import { AgGridReact } from "ag-grid-react";
+import "ag-grid-community/dist/styles/ag-grid.css";
+import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+import { ColDef } from "ag-grid-community";
+
 interface DataRow {
   id: number;
-  [key: string]: any;
+  [key: string]: string | number;
 }
+
 interface DataTableProps {
-  columns: string[];
-  data: DataRow[];
+  columnDefs: ColDef[];
+  rowData: DataRow[];
 }
-const DataTable: React.FC<DataTableProps> = ({ columns, data }) => (
-  <table className="data-table">
-    <thead>
-      <tr>
-        {columns.map((column, index) => (
-          <th key={index}>{column}</th>
-        ))}
-      </tr>
-    </thead>
-    <tbody>
-      {data.map((row) => (
-        <tr key={row.id}>
-          {columns.map((column, index) => (
-            <td key={index}>{row[column]}</td>
-          ))}
-        </tr>
-      ))}
-    </tbody>
-  </table>
+
+const DataTable: React.FC<DataTableProps> = ({ columnDefs, rowData }) => (
+  <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
+    <AgGridReact columnDefs={columnDefs} rowData={rowData}></AgGridReact>
+  </div>
 );
+
 export default DataTable;
