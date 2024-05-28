@@ -1,0 +1,41 @@
+
+// Color Variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$white: #ffffff;
+$black: #000000;
+
+// Size Variables
+$base-spacing: 16px;
+$small-spacing: $base-spacing / 2;
+$large-spacing: $base-spacing * 2;
+
+// Border Radius Variables
+$border-radius-small: 4px;
+$border-radius-base: 8px;
+$border-radius-large: 12px;
+
+// Example Mixin for Button
+@mixin button-styles($color) {
+  background-color: $color;
+  color: $white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: $border-radius-base;
+  &:hover {
+    background-color: darken($color, 15%);
+  }
+}
+
+// Using Mixin for Primary Button
+.primary-button {
+  @include button-styles($primary-color);
+}
+
+// Using Mixin for Secondary Button
+.secondary-button {
+  @include button-styles($secondary-color);
+}
