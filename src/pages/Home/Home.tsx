@@ -1,4 +1,4 @@
-import TopSales from "../../components/TopSales";
+import TopSales from "../../components/TopSales/TopSales";
 
 const Home = () => {
   return (

@@ -3,6 +3,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
 import "./Settings.scss";
+import Button from "../../components/Button";
+import Input from "../../components/Input/Input";
 
 const schema = yup.object().shape({
   displayName: yup.string().required(),
@@ -32,63 +34,35 @@ const Settings = () => {
   return (
     <div className="settings-page">
       <h2>Settings</h2>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          width: "300px",
-          margin: "0 auto",
-        }}
-      >
-        <input
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          type="text"
           {...register("displayName")}
           placeholder="Display Name"
-          style={{ padding: "0.5rem", fontSize: "1rem", borderRadius: "10px" }}
         />
         <p>{errors.displayName?.message}</p>
 
-        <input
-          {...register("email")}
-          placeholder="Email"
-          style={{ padding: "0.5rem", fontSize: "1rem", borderRadius: "10px" }}
-        />
+        <Input type="email" {...register("email")} placeholder="Email" />
         <p>{errors.email?.message}</p>
 
-        <input
-          {...register("address")}
-          placeholder="Address"
-          style={{ padding: "0.5rem", fontSize: "1rem", borderRadius: "10px" }}
-        />
+        <Input type="text" {...register("address")} placeholder="Address" />
         <p>{errors.address?.message}</p>
 
         <Link to="/reset-password">Reset Password</Link>
 
         <label>
-          <input {...register("receiveUpdates")} type="checkbox" />
+          <Input {...register("receiveUpdates")} type="checkbox" />
           Receive updates about new features
         </label>
 
-        <input
+        <Button
           type="submit"
-          style={{
-            padding: "0.5rem",
-            fontSize: "1rem",
-            cursor: "pointer",
-            borderRadius: "10px",
+          onClick={function (): void {
+            throw new Error("Function not implemented.");
           }}
-        />
-        <input
-          type="reset"
-          value="Cancel"
-          style={{
-            padding: "0.5rem",
-            fontSize: "1rem",
-            cursor: "pointer",
-            borderRadius: "10px",
-          }}
-        />
+        >
+          Submit
+        </Button>
       </form>
     </div>
   );
