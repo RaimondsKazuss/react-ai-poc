@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import TablePage from "./pages/TablePage"; // Adjust the import path as necessary
 import TopSales from "./components/TopSales";
-import Settings from "./pages/Settings";
+import Settings from "./pages/Settings/Settings";
+import TablePage from "./pages/TablePage/TablePage";
 
 function App() {
   return (

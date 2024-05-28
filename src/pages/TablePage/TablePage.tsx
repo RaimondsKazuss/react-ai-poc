@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ColDef } from "ag-grid-community";
 
-import data from "../data.json";
-import DataTable, { DataRow } from "../components/DataTable";
+import data from "../../data.json";
+import DataTable, { DataRow } from "../../components/DataTable";
 
 const TablePage: React.FC = () => {
   const [rowData, setRowData] = useState<DataRow[]>([]);

@@ -1,0 +1,18 @@
+.table-container {
+  margin: $large-spacing;
+}
+
+.ag-header {
+  background-color: $primary-color;
+  color: $white;
+}
+
+.ag-row {
+  &:nth-child(even) {
+    background-color: $secondary-color;
+  }
+}
+
+.ag-cell {
+  padding: $small-spacing;
+}

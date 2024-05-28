@@ -1,0 +1,20 @@
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $primary-color;
+    padding: $small-spacing;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.link {
+    color: $white;
+    text-decoration: none;
+    &:hover {
+        color: darken($white, 10%);
+    }
+}
