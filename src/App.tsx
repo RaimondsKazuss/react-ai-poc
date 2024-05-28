@@ -4,7 +4,6 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { getTableData } from "./api/api";
 import { useQuery } from "@tanstack/react-query";
-import Example from "./components/example";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,17 +12,11 @@ function App() {
     queryFn: () => getTableData(),
   });
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  useEffect(() => {}, [data]);
 
   if (isLoading) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
-
-  // useEffect(() => {
-  //   console.log(tableData);
-  // }, [tableData]);
 
   return (
     <>
@@ -47,7 +40,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <Example />
+      {/* <Example /> */}
     </>
   );
 }
