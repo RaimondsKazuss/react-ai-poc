@@ -1,24 +1,35 @@
+@import "../../theme.scss";
+
+.settings-page {
+  padding: 3rem 2rem;
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin: 20px 0;
+  }
+}
 
 .form-group {
-    margin-bottom: $large-spacing;
+  margin-bottom: $large-spacing;
 }
 
 .label {
-    display: block;
-    margin-bottom: $small-spacing;
+  display: block;
+  margin-bottom: $small-spacing;
 }
 
 .input,
 .textarea,
 .select {
-    width: 100%;
-    padding: $small-spacing;
-    margin-bottom: $small-spacing;
-    border: 1px solid $secondary-color;
-    border-radius: $border-radius-base;
+  width: 100%;
+  padding: $small-spacing;
+  margin-bottom: $small-spacing;
+  border: 1px solid $secondary-color;
+  border-radius: $border-radius-base;
 }
 
 .button {
-    @include button-styles($primary-color);
-    margin-top: $small-spacing;
+  @include button-styles($primary-color);
+  margin-top: $small-spacing;
 }

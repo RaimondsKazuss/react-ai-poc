@@ -3,6 +3,7 @@ import { ColDef } from "ag-grid-community";
 
 import data from "../../data.json";
 import DataTable, { DataRow } from "../../components/DataTable";
+import "./TablePage.scss";
 
 const TablePage: React.FC = () => {
   const [rowData, setRowData] = useState<DataRow[]>([]);
@@ -25,26 +26,9 @@ const TablePage: React.FC = () => {
   ];
 
   return (
-    <div style={{ padding: "0 2rem" }}>
-      <h2
-        style={{
-          textAlign: "center",
-          color: "#333",
-          fontSize: "2em",
-          margin: "20px 0",
-        }}
-      >
-        Table Page
-      </h2>
+    <div className="table-page">
+      <h2>Table Page</h2>
       <div className="ag-theme-alpine" style={{ height: 600, width: "100%" }}>
-        {/* <AgGridReact
-          columnDefs={columnDefs}
-          rowData={rowData}
-          domLayout="autoHeight" // Adjust grid size dynamically
-          animateRows
-          pagination
-          paginationPageSize={15}
-        /> */}
         <DataTable columnDefs={columnDefs} rowData={rowData} />
       </div>
     </div>

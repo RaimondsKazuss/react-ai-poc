@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
+import "./Settings.scss";
 
 const schema = yup.object().shape({
   displayName: yup.string().required(),
@@ -29,17 +30,8 @@ const Settings = () => {
   const onSubmit = (data: unknown) => console.log(data);
 
   return (
-    <div style={{ padding: "0 2rem" }}>
-      <h2
-        style={{
-          textAlign: "center",
-          color: "#333",
-          fontSize: "2em",
-          margin: "20px 0",
-        }}
-      >
-        Settings
-      </h2>
+    <div className="settings-page">
+      <h2>Settings</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
         style={{

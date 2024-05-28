@@ -14,7 +14,7 @@ function TopSales() {
   }, []);
 
   return (
-    <div style={{ padding: "0 2rem" }}>
+    <div style={{ padding: "3rem 2rem" }}>
       <h2
         style={{
           textAlign: "center",

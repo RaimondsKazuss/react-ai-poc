@@ -1,5 +1,17 @@
+@import "../../theme.scss";
+
 .table-container {
   margin: $large-spacing;
+}
+
+.table-page {
+  padding: 3rem 2rem;
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin: 20px 0;
+  }
 }
 
 .ag-header {

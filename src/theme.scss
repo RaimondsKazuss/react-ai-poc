@@ -1,7 +1,6 @@
-
 // Color Variables
 $primary-color: #007bff;
-$secondary-color: #6c757d;
+$secondary-color: #d6d6d6;
 $success-color: #28a745;
 $danger-color: #dc3545;
 $warning-color: #ffc107;
@@ -10,7 +9,7 @@ $black: #000000;
 
 // Size Variables
 $base-spacing: 16px;
-$small-spacing: $base-spacing / 2;
+$small-spacing: calc($base-spacing / 2);
 $large-spacing: $base-spacing * 2;
 
 // Border Radius Variables
