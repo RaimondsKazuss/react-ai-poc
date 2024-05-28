@@ -8,20 +8,23 @@ interface InputProps {
 }
 
 import "./Input.scss";
-const Input: React.FC<InputProps> = ({
+
+const Input = ({
   type,
   placeholder,
   value,
   onChange,
   disabled = false,
-}) => (
-  <input
-    type={type}
-    className="input"
-    placeholder={placeholder}
-    value={value}
-    onChange={onChange}
-    disabled={disabled}
-  />
-);
+}: InputProps) => {
+  return (
+    <input
+      type={type}
+      className="input"
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      disabled={disabled}
+    />
+  );
+};
 export default Input;
