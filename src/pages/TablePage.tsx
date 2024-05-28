@@ -1,10 +1,9 @@
-// File: /pages/TablePage.tsx
-
 import React, { useEffect, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { ColDef } from "ag-grid-community"; // Importing column definition types from ag-Grid
-import "@ag-grid-community/styles/ag-grid.css";
-import "@ag-grid-community/styles/ag-theme-alpine.css";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
+import data from "../data.json";
 
 interface DataRow {
   id: number;
@@ -22,10 +21,8 @@ const TablePage: React.FC = () => {
   const [rowData, setRowData] = useState<DataRow[]>([]);
 
   useEffect(() => {
-    // Fetching the data from the local server
-    fetch("http://localhost:3001/data") // Ensuring the endpoint matches your Node.js server setup
-      .then((response) => response.json())
-      .then((data: DataRow[]) => setRowData(data)); // Type assertion for the fetched data
+    // Mock fetching the data from the local server
+    setRowData(data);
   }, []);
 
   const columnDefs: ColDef[] = [
@@ -46,7 +43,9 @@ const TablePage: React.FC = () => {
         columnDefs={columnDefs}
         rowData={rowData}
         domLayout="autoHeight" // Adjust grid size dynamically
-        animateRows={true} // Animates rows when they are updated
+        animateRows
+        pagination
+        paginationPageSize={15}
       />
     </div>
   );

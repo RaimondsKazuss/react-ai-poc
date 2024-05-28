@@ -6,10 +6,10 @@ function App() {
     <Router>
       <div>
         <nav>
-          {/* Link to the TablePage */}
-          <Link to="/table">Go to Table Page</Link>
+          <Link to="/">Home</Link>
+          <br />
+          <Link to="/table">Table</Link>
         </nav>
-        {/* Define Routes */}
         <Routes>
           <Route path="/" element={<Home />} />{" "}
           {/* Define a Home component or use an existing component */}
